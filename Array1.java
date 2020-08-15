@@ -45,25 +45,26 @@ public class Array1 {
 //			System.out.printf("nums = %s : %d\n", Arrays.toString(num4), sum3(num4) );
 //		}
 		
-		int[][] nums5 = { {1, 2, 3}, {5, 11, 9}, {7, 0, 0} };
-		for ( int[] num5 : nums5 ) {
-			System.out.printf("nums = %s : %s\n", Arrays.toString(num5), Arrays.toString(rotateLeft3(num5)));
+//		int[][] nums5 = { {1, 2, 3}, {5, 11, 9}, {7, 0, 0} };
+//		for ( int[] num5 : nums5 ) {
+//			System.out.printf("nums = %s : %s\n", Arrays.toString(num5), Arrays.toString(rotateLeft3(num5)));
+//		}
+		
+//		int[][] nums6 = { {1, 2, 3}, {5, 11, 9}, {7, 0, 0} };
+//		for ( int[] num6 : nums6 ) {
+//			System.out.printf("nums = %s : %s\n", Arrays.toString(num6), Arrays.toString(reverse3(num6)));
+//		}
+		
+//		int[][] nums7 = { {1, 2, 3}, {11, 5, 9}, {2, 11, 3} };
+//		for ( int[] num7 : nums7 ) {
+//			System.out.printf("nums = %s : %s\n", Arrays.toString(num7), Arrays.toString(maxEnd3(num7)));
+//		}
+		
+		int[][] nums8 = { {1, 2, 3}, {1, 1}, {1, 1, 1, 1} };
+		for ( int[] num8 : nums8 ) {
+			System.out.printf("nums = %s : %d\n", Arrays.toString(num8), sum2(num8));
 		}
 		
-	}
-
-	private int[] rotateLeft3(int[] nums) {
-
-//		Given an array of ints length 3, return an array 
-//		with the elements "rotated left" so {1, 2, 3} yields 
-//		{2, 3, 1}.
-//
-//		rotateLeft3([1, 2, 3]) → [2, 3, 1]
-//		rotateLeft3([5, 11, 9]) → [11, 9, 5]
-//		rotateLeft3([7, 0, 0]) → [0, 0, 7]
-		
-		int[] rotateleft3 = { nums[1], nums[2], nums[0] };
-		return rotateleft3;
 	}
 
 	private boolean firstLast6(int[] nums) {
@@ -127,6 +128,67 @@ public class Array1 {
 //		sum3([7, 0, 0]) → 7
 		
 		return nums[0] + nums[1] + nums[2];
+	}
+
+	private int[] rotateLeft3(int[] nums) {
+
+//		Given an array of ints length 3, return an array 
+//		with the elements "rotated left" so {1, 2, 3} yields 
+//		{2, 3, 1}.
+//
+//		rotateLeft3([1, 2, 3]) → [2, 3, 1]
+//		rotateLeft3([5, 11, 9]) → [11, 9, 5]
+//		rotateLeft3([7, 0, 0]) → [0, 0, 7]
+		
+		int[] rotateleft3 = { nums[1], nums[2], nums[0] };
+		return rotateleft3;
+	}
+
+	private int[] reverse3(int[] nums) {
+		
+//		Given an array of ints length 3, return a new array 
+//		with the elements in reverse order, so {1, 2, 3} 
+//		becomes {3, 2, 1}.
+//
+//		reverse3([1, 2, 3]) → [3, 2, 1]
+//		reverse3([5, 11, 9]) → [9, 11, 5]
+//		reverse3([7, 0, 0]) → [0, 0, 7]
+		int[] reversethree = { nums[2], nums[1], nums[0] };
+		return reversethree;
+	}
+
+	private int[] maxEnd3(int[] nums) {
+		
+//		Given an array of ints length 3, figure out which is 
+//		larger, the first or last element in the array, and 
+//		set all the other elements to be that value. Return 
+//		the changed array.
+//
+//		maxEnd3([1, 2, 3]) → [3, 3, 3]
+//		maxEnd3([11, 5, 9]) → [11, 11, 11]
+//		maxEnd3([2, 11, 3]) → [3, 3, 3]
+		int max = Integer.MIN_VALUE;
+		if ( nums[0] > max ) max = nums[0];
+		if ( nums[2] > max ) max = nums[2];
+		
+		int[] maxend3 = { max, max, max };
+		return maxend3;
+		
+	}
+
+	private int sum2(int[] nums) {
+
+//		Given an array of ints, return the sum of the first 
+//		2 elements in the array. If the array length is less 
+//		than 2, just sum up the elements that exist, returning 
+//		0 if the array is length 0.
+//
+//		sum2([1, 2, 3]) → 3
+//		sum2([1, 1]) → 2
+//		sum2([1, 1, 1, 1]) → 2
+		if ( nums.length == 0 ) return 0;
+		if ( nums.length == 1 ) return nums[0];
+		return nums[0] + nums[1];
 	}
 
 }

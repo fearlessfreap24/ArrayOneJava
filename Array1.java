@@ -84,9 +84,14 @@ public class Array1 {
 //			System.out.printf("nums = %s : %b\n", Arrays.toString(num11), has23(num11));
 //		}
 
-		int[][] nums12 = { {4, 5}, {4, 2}, {3, 5} };
-		for ( int[] num12 : nums12 ){
-			System.out.printf("nums = %s : %b\n", Arrays.toString(num12), no23(num12));
+//		int[][] nums12 = { {4, 5}, {4, 2}, {3, 5} };
+//		for ( int[] num12 : nums12 ){
+//			System.out.printf("nums = %s : %b\n", Arrays.toString(num12), no23(num12));
+//		}
+
+		int[][] nums13 = { {4, 5, 6}, {1, 2}, {3} };
+		for ( int[] num13 : nums13 ){
+			System.out.printf("nums = %s : %s\n", Arrays.toString(num13), Arrays.toString(makeLast(num13)));
 		}
 		
 	}
@@ -271,6 +276,25 @@ public class Array1 {
 //		no23([4, 2]) → false
 //		no23([3, 5]) → false
 		return ( nums[0] != 2 && nums[0] != 3 && nums[1] != 2 && nums[1] != 3 );
+	}
+
+	private int[] makeLast(int[] nums) {
+
+//		Given an int array, return a new array with double the
+//		length where its last element is the same as the original
+//		array, and all the other elements are 0. The original array
+//		will be length 1 or more. Note: by default, a new int
+//		array contains all 0's.
+//
+//		makeLast([4, 5, 6]) → [0, 0, 0, 0, 0, 6]
+//		makeLast([1, 2]) → [0, 0, 0, 2]
+//		makeLast([3]) → [0, 3]
+
+		int[] makelast = new int[nums.length*2];
+		makelast[makelast.length-1] = nums[nums.length-1];
+
+		return makelast;
+
 	}
 
 }

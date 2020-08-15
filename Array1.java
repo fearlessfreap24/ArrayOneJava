@@ -79,9 +79,14 @@ public class Array1 {
 //					Arrays.toString(makeEnds(num10)));
 //		}
 		
-		int[][] nums11 = { {2, 5}, {4, 3}, {4, 5} };
-		for ( int[] num11 : nums11 ) {
-			System.out.printf("nums = %s : %b\n", Arrays.toString(num11), has23(num11));
+//		int[][] nums11 = { {2, 5}, {4, 3}, {4, 5} };
+//		for ( int[] num11 : nums11 ) {
+//			System.out.printf("nums = %s : %b\n", Arrays.toString(num11), has23(num11));
+//		}
+
+		int[][] nums12 = { {4, 5}, {4, 2}, {3, 5} };
+		for ( int[] num12 : nums12 ){
+			System.out.printf("nums = %s : %b\n", Arrays.toString(num12), no23(num12));
 		}
 		
 	}
@@ -256,6 +261,16 @@ public class Array1 {
 		
 		return (nums[0] == 2 || nums[0] == 3 || nums[1] == 2 || nums[1] == 3);
 		
+	}
+
+	private boolean no23(int[] nums){
+
+//		Given an int array length 2, return true if it does not contain a 2 or 3.
+//
+//		no23([4, 5]) → true
+//		no23([4, 2]) → false
+//		no23([3, 5]) → false
+		return ( nums[0] != 2 && nums[0] != 3 && nums[1] != 2 && nums[1] != 3 );
 	}
 
 }

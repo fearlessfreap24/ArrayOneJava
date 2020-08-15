@@ -60,9 +60,28 @@ public class Array1 {
 //			System.out.printf("nums = %s : %s\n", Arrays.toString(num7), Arrays.toString(maxEnd3(num7)));
 //		}
 		
-		int[][] nums8 = { {1, 2, 3}, {1, 1}, {1, 1, 1, 1} };
-		for ( int[] num8 : nums8 ) {
-			System.out.printf("nums = %s : %d\n", Arrays.toString(num8), sum2(num8));
+//		int[][] nums8 = { {1, 2, 3}, {1, 1}, {1, 1, 1, 1} };
+//		for ( int[] num8 : nums8 ) {
+//			System.out.printf("nums = %s : %d\n", Arrays.toString(num8), sum2(num8));
+//		}
+		
+//		int[][][] nums9 = { { {1, 2, 3}, {4, 5, 6} },
+//				{ {7, 7, 7}, {3, 8, 0} },
+//				{ {5, 2, 9}, {1, 4, 5} } };
+//		for ( int[][] num9 : nums9 ) {
+//			System.out.printf("nums = %s : %s\n", Arrays.deepToString(num9), 
+//					Arrays.toString(middleWay(num9[0], num9[1])));
+//		}
+		
+//		int[][] nums10 = { {1, 2, 3}, {1, 2, 3, 4}, {7, 4, 6, 2}, {7} };
+//		for ( int[] num10 : nums10 ) {
+//			System.out.printf("nums = %s : %s\n", Arrays.toString(num10),
+//					Arrays.toString(makeEnds(num10)));
+//		}
+		
+		int[][] nums11 = { {2, 5}, {4, 3}, {4, 5} };
+		for ( int[] num11 : nums11 ) {
+			System.out.printf("nums = %s : %b\n", Arrays.toString(num11), has23(num11));
 		}
 		
 	}
@@ -189,6 +208,54 @@ public class Array1 {
 		if ( nums.length == 0 ) return 0;
 		if ( nums.length == 1 ) return nums[0];
 		return nums[0] + nums[1];
+	}
+
+	private int[] middleWay(int[] a, int[] b) {
+		
+//		Given 2 int arrays, a and b, each length 3, return 
+//		a new array length 2 containing their middle elements.
+//
+//
+//		middleWay([1, 2, 3], [4, 5, 6]) → [2, 5]
+//		middleWay([7, 7, 7], [3, 8, 0]) → [7, 8]
+//		middleWay([5, 2, 9], [1, 4, 5]) → [2, 4]
+		int[] middleway = { a[1], b[1] };
+		return middleway;
+	}
+
+	private int[] makeEnds(int[] nums) {
+		
+//		Given an array of ints, return a new array length 
+//		2 containing the first and last elements from the 
+//		original array. The original array will be length 
+//		1 or more.
+//
+//		makeEnds([1, 2, 3]) → [1, 3]
+//		makeEnds([1, 2, 3, 4]) → [1, 4]
+//		makeEnds([7, 4, 6, 2]) → [7, 2]
+		int[] makeends = new int[2];
+		if ( nums.length == 1 ) {
+			makeends[0] = nums[0];
+			makeends[1] = nums[0];
+		}
+		else {
+			makeends[0] = nums[0];
+			makeends[1] = nums[nums.length - 1];
+		}
+		
+		return makeends;
+	}
+
+	private boolean has23(int[] nums) {
+		
+//		Given an int array length 2, return true if it contains a 2 or a 3.
+//
+//		has23([2, 5]) → true
+//		has23([4, 3]) → true
+//		has23([4, 5]) → false
+		
+		return (nums[0] == 2 || nums[0] == 3 || nums[1] == 2 || nums[1] == 3);
+		
 	}
 
 }

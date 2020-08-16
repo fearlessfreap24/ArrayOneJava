@@ -45,9 +45,24 @@ public class Array1pt2 {
 //                    Arrays.toString(plusTwo(nums[0], nums[1])));
 //        }
 
-        int[][] nums20 = { {1, 2, 3, 4}, {1, 2, 3}, {8, 6, 7, 9, 5}, {1} };
-        for ( int[] nums : nums20 ){
-            System.out.printf("nums = %s : %s\n", Arrays.toString(nums), Arrays.toString(swapEnds(nums)));
+//        int[][] nums20 = { {1, 2, 3, 4}, {1, 2, 3}, {8, 6, 7, 9, 5}, {1} };
+//        for ( int[] nums : nums20 ){
+//            System.out.printf("nums = %s : %s\n", Arrays.toString(nums), Arrays.toString(swapEnds(nums)));
+//        }
+
+//        int[][] nums21 = { {1, 2, 3, 4, 5}, {8, 6, 7, 5, 3, 0, 9}, {1, 2, 3} };
+//            for ( int[] nums : nums21 ){
+//                System.out.printf("nums = %s : %s\n", Arrays.toString(nums), Arrays.toString(midThree(nums)));
+//            }
+
+//        int[][] nums22 = { {1, 2, 3}, {1, 5, 3}, {5, 2, 3} };
+//        for ( int[] nums : nums22 ){
+//            System.out.printf("nums = %s : %d\n", Arrays.toString(nums), maxTriple(nums));
+//        }
+
+        int[][] nums23 = { {1, 2, 3}, {1, 2}, {1} };
+        for ( int[] nums : nums23 ){
+            System.out.printf("nums = %s : %s\n", Arrays.toString(nums), Arrays.toString(frontPiece(nums)));
         }
     }
 
@@ -145,5 +160,55 @@ public class Array1pt2 {
         nums[0] = back;
         nums[nums.length - 1] = front;
         return nums;
+    }
+
+    private int[] midThree(int[] nums) {
+
+//        Given an array of ints of odd length, return a new array
+//        length 3 containing the elements from the middle of the array.
+//        The array length will be at least 3.
+//
+//        midThree([1, 2, 3, 4, 5]) → [2, 3, 4]
+//        midThree([8, 6, 7, 5, 3, 0, 9]) → [7, 5, 3]
+//        midThree([1, 2, 3]) → [1, 2, 3]
+        if ( nums.length == 3 ) return nums;
+        int numsLength = nums.length;
+        int[] midthree = new int[3];
+        midthree[0] = nums[(numsLength/2) - 1];
+        midthree[1] = nums[(numsLength/2)];
+        midthree[2] = nums[(numsLength/2) + 1];
+        return midthree;
+    }
+
+    private int maxTriple(int[] nums) {
+
+//        Given an array of ints of odd length, look at the first,
+//        last, and middle values in the array and return the largest.
+//        The array length will be a least 1.
+//
+//        maxTriple([1, 2, 3]) → 3
+//        maxTriple([1, 5, 3]) → 5
+//        maxTriple([5, 2, 3]) → 5
+        if ( nums.length == 1 ) return nums[0];
+        int first = nums[0];
+        int middle = nums[nums.length / 2];
+        int last = nums[nums.length - 1];
+        return Math.max(Math.max(first, middle), Math.max(middle, last));
+    }
+
+    private int[] frontPiece(int[] nums) {
+
+//        Given an int array of any length, return a new array of its
+//        first 2 elements. If the array is smaller than length 2, use
+//        whatever elements are present.
+//
+//        frontPiece([1, 2, 3]) → [1, 2]
+//        frontPiece([1, 2]) → [1, 2]
+//        frontPiece([1]) → [1]
+        if ( nums.length < 2 ) return nums;
+        int[] frontpiece = new int[2];
+        frontpiece[0] = nums[0];
+        frontpiece[1] = nums[1];
+        return frontpiece;
     }
 }

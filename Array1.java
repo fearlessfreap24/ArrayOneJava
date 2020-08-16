@@ -89,11 +89,32 @@ public class Array1 {
 //			System.out.printf("nums = %s : %b\n", Arrays.toString(num12), no23(num12));
 //		}
 
-		int[][] nums13 = { {4, 5, 6}, {1, 2}, {3} };
-		for ( int[] num13 : nums13 ){
-			System.out.printf("nums = %s : %s\n", Arrays.toString(num13), Arrays.toString(makeLast(num13)));
+//		int[][] nums13 = { {4, 5, 6}, {1, 2}, {3} };
+//		for ( int[] num13 : nums13 ){
+//			System.out.printf("nums = %s : %s\n", Arrays.toString(num13), Arrays.toString(makeLast(num13)));
+//		}
+
+		int[][] nums14 = { {2, 2}, {3, 3}, {2, 3}, {1}, {} };
+		for ( int[] num14 : nums14 ){
+			System.out.printf("nums = %s : %b\n", Arrays.toString(num14), double23(num14));
 		}
 		
+	}
+
+	private boolean double23(int[] nums) {
+
+//		Given an int array, return true if the array contains
+//		2 twice, or 3 twice. The array will be length 0, 1, or 2.
+//
+//		double23([2, 2]) → true
+//		double23([3, 3]) → true
+//		double23([2, 3]) → false
+		if ( nums.length == 0 || nums.length == 1 ) return false;
+		if ( nums[0] == nums[1]
+				&& ( nums[0] == 2
+				|| nums[0] == 3 ) )
+			return true;
+		return false;
 	}
 
 	private boolean firstLast6(int[] nums) {

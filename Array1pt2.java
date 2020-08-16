@@ -28,10 +28,26 @@ public class Array1pt2 {
 //            System.out.printf("arrays = %s : %d\n", Arrays.deepToString(nums), start1(nums[0], nums[1]));
 //        }
 
-        int[][][] nums17 = { { {1, 2}, {3, 4} }, { {3, 4}, {1, 2} }, { {1, 1}, {1, 2} }, { {2, 2}, {1, 3} } };
-        for ( int[][] nums : nums17 ){
-            System.out.printf("arrays = %s : %s\n", Arrays.deepToString(nums),
-                    Arrays.toString(biggerTwo(nums[0], nums[1])));
+//        int[][][] nums17 = { { {1, 2}, {3, 4} }, { {3, 4}, {1, 2} }, { {1, 1}, {1, 2} }, { {2, 2}, {1, 3} } };
+//        for ( int[][] nums : nums17 ){
+//            System.out.printf("arrays = %s : %s\n", Arrays.deepToString(nums),
+//                    Arrays.toString(biggerTwo(nums[0], nums[1])));
+//        }
+
+//        int[][] nums18 = { {1, 2, 3, 4}, {7, 1, 2, 3, 4, 9}, {1, 2} };
+//        for ( int[] nums : nums18 ){
+//            System.out.printf("nums = %s : %s\n", Arrays.toString(nums), Arrays.toString(makeMiddle(nums)));
+//        }
+
+//        int[][][] nums19 = { { {1, 2}, {3, 4} }, { {4, 4}, {2, 2} }, { {9, 2}, {3, 4} } };
+//        for ( int[][] nums : nums19 ){
+//            System.out.printf("arrays = %s : %s\n", Arrays.deepToString(nums),
+//                    Arrays.toString(plusTwo(nums[0], nums[1])));
+//        }
+
+        int[][] nums20 = { {1, 2, 3, 4}, {1, 2, 3}, {8, 6, 7, 9, 5}, {1} };
+        for ( int[] nums : nums20 ){
+            System.out.printf("nums = %s : %s\n", Arrays.toString(nums), Arrays.toString(swapEnds(nums)));
         }
     }
 
@@ -80,5 +96,54 @@ public class Array1pt2 {
         if ( a[0] + a[1] == b[0] + b[1] ) return a;
         if ( a[0] + a[1] > b[0] + b[1] ) return a;
         return b;
+    }
+
+    private int[] makeMiddle(int[] nums) {
+
+//        Given an array of ints of even length, return a new array
+//        length 2 containing the middle two elements from the original
+//        array. The original array will be length 2 or more.
+//
+//        makeMiddle([1, 2, 3, 4]) → [2, 3]
+//        makeMiddle([7, 1, 2, 3, 4, 9]) → [2, 3]
+//        makeMiddle([1, 2]) → [1, 2]
+        int numsLength = nums.length;
+        int[] makemiddle = new int[2];
+        makemiddle[0] = nums[(numsLength/2) -1];
+        makemiddle[1] = nums[numsLength/2];
+        return makemiddle;
+    }
+
+    private int[] plusTwo(int[] a, int[] b) {
+
+//        Given 2 int arrays, each length 2, return a new array length
+//        4 containing all their elements.
+//
+//        plusTwo([1, 2], [3, 4]) → [1, 2, 3, 4]
+//        plusTwo([4, 4], [2, 2]) → [4, 4, 2, 2]
+//        plusTwo([9, 2], [3, 4]) → [9, 2, 3, 4]
+        int[] plustwo = new int[4];
+        plustwo[0] = a[0];
+        plustwo[1] = a[1];
+        plustwo[2] = b[0];
+        plustwo[3] = b[1];
+        return plustwo;
+    }
+
+    private int[] swapEnds(int[] nums) {
+
+//        Given an array of ints, swap the first and last elements
+//        in the array. Return the modified array. The array length
+//        will be at least 1.
+//
+//        swapEnds([1, 2, 3, 4]) → [4, 2, 3, 1]
+//        swapEnds([1, 2, 3]) → [3, 2, 1]
+//        swapEnds([8, 6, 7, 9, 5]) → [5, 6, 7, 9, 8]
+        if ( nums.length == 1 ) return nums;
+        int front = nums[0];
+        int back = nums[nums.length - 1];
+        nums[0] = back;
+        nums[nums.length - 1] = front;
+        return nums;
     }
 }

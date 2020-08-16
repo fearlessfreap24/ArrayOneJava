@@ -60,9 +60,26 @@ public class Array1pt2 {
 //            System.out.printf("nums = %s : %d\n", Arrays.toString(nums), maxTriple(nums));
 //        }
 
-        int[][] nums23 = { {1, 2, 3}, {1, 2}, {1} };
-        for ( int[] nums : nums23 ){
-            System.out.printf("nums = %s : %s\n", Arrays.toString(nums), Arrays.toString(frontPiece(nums)));
+//        int[][] nums23 = { {1, 2, 3}, {1, 2}, {1} };
+//        for ( int[] nums : nums23 ){
+//            System.out.printf("nums = %s : %s\n", Arrays.toString(nums), Arrays.toString(frontPiece(nums)));
+//        }
+
+//        int[][] nums24 = { {1, 3, 4, 5}, {2, 1, 3, 4, 5}, {1, 1, 1} };
+//        for ( int[] nums : nums24 ){
+//            System.out.printf("nums = %s : %b\n", Arrays.toString(nums), unlucky1(nums));
+//        }
+
+//        int[][][] nums25 = { { {4, 5}, {1, 2, 3} }, { {4}, {1, 2, 3} }, { {}, {1, 2} } };
+//        for ( int[][] nums : nums25 ){
+//            System.out.printf("arrays = %s : %s\n", Arrays.deepToString(nums),
+//                    Arrays.toString(make2(nums[0], nums[1])));
+//        }
+
+        int[][][] nums26 = { { {1, 2, 3}, {7, 9, 8} }, { {1}, {1, 2} }, { {1, 7}, {} }, { {}, {} } };
+        for ( int[][] nums : nums26 ){
+            System.out.printf("arrays = %s : %s\n", Arrays.deepToString(nums),
+                    Arrays.toString(front11(nums[0], nums[1])));
         }
     }
 
@@ -210,5 +227,78 @@ public class Array1pt2 {
         frontpiece[0] = nums[0];
         frontpiece[1] = nums[1];
         return frontpiece;
+    }
+
+    private boolean unlucky1(int[] nums) {
+
+//        We'll say that a 1 immediately followed by a 3 in an array
+//        is an "unlucky" 1. Return true if the given array contains
+//        an unlucky 1 in the first 2 or last 2 positions in the array.
+//
+//        unlucky1([1, 3, 4, 5]) → true
+//        unlucky1([2, 1, 3, 4, 5]) → true
+//        unlucky1([1, 1, 1]) → false
+        int numsL = nums.length;
+        if ( numsL < 2 ) return false;
+        if ( numsL == 2 ) return ( nums[0] == 1) && ( nums[1] == 3 );
+        if ( ( nums[0] == 1 && nums[1] == 3)
+                || ( nums[1] == 1 && nums[2] == 3)
+                || (nums[numsL - 2] == 1 && nums[numsL - 1] == 3) )
+            return true;
+        return false;
+    }
+
+    private int[] make2(int[] a, int[] b) {
+
+//        Given 2 int arrays, a and b, return a new array length 2
+//        containing, as much as will fit, the elements from a followed
+//        by the elements from b. The arrays may be any length, including
+//        0, but there will be 2 or more elements available between the
+//        2 arrays.
+//
+//        make2([4, 5], [1, 2, 3]) → [4, 5]
+//        make2([4], [1, 2, 3]) → [4, 1]
+//        make2([], [1, 2]) → [1, 2]
+        int[] maketwo = new int[2];
+        if ( a.length == 0 ){
+            maketwo[0] = b[0];
+            maketwo[1] = b[1];
+        }
+        else if ( a.length == 1 ){
+            maketwo[0] = a[0];
+            maketwo[1] = b[0];
+        }
+        else {
+            maketwo[0] = a[0];
+            maketwo[1] = a[1];
+        }
+        return maketwo;
+    }
+
+    private int[] front11(int[] a, int[] b) {
+
+//        Given 2 int arrays, a and b, of any length, return a new
+//        array with the first element of each array. If either array
+//        is length 0, ignore that array.
+//
+//        front11([1, 2, 3], [7, 9, 8]) → [1, 7]
+//        front11([1], [2]) → [1, 2]
+//        front11([1, 7], []) → [1]
+        if ( a.length == 0 && b.length == 0 ){
+            int[] front11 = {};
+            return front11;
+        }
+        else if ( a.length == 0 ) {
+            int[] front11 = {b[0]};
+            return front11;
+        }
+        else if ( b.length == 0 ) {
+            int[] front11 = {a[0]};
+            return front11;
+        }
+        else {
+            int[] front11 = { a[0], b[0] };
+            return front11;
+        }
     }
 }
